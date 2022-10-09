@@ -1,3 +1,4 @@
+import logging.config
 import time
 from logging import getLogger
 
@@ -5,6 +6,7 @@ import pandas as pd
 import requests
 from bs4 import BeautifulSoup
 
+logging.config.fileConfig('conf/logging.ini')
 logger = getLogger(__name__)
 
 
@@ -50,7 +52,6 @@ class JSICDefinitionExtractor:
             )
 
         # Get JSIC codes
-        self.get_jsic_code()
         code_jsic = self.dict_jsic_code[f"code_{classification}"]
 
         logger.info(f"Number of {classification}: {len(code_jsic)}")
