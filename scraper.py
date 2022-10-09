@@ -81,7 +81,7 @@ class JSICDefinitionExtractor:
             # Description
             for key, value in dict_raw.items():
                 if "説明" in key:
-                    dict_jsic[f"description_{classification}"] = value
+                    dict_jsic[f"description_{classification}"] = value.replace("　", "").replace(" ", "").replace("総説", "")
 
             # Example (for detail)
             if classification == "detail":
